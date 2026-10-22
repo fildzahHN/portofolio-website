@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+  TAHAP 1: Portofolio versi 1 (HTML + CSS)
+
+  CARA PAKAI:
+  1. Cari semua teks bertanda [GANTI] lalu isi dengan data Anda.
+  2. Buka file ini di browser (klik dua kali), atau pakai ekstensi "Live Server" di VS Code.
+  3. Kerjakan bagian "TUGAS" satu per satu. Jangan sekaligus.
+-->
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Baris di bawah WAJIB ada agar tampilan benar di HP (responsive <) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Fildzah Hashilah N | Portofolio Website</title>
+    <meta
+      name="description"
+      content="Portofolio Website mahasiswa Teknologi Rekayasa Multimedia."
+    />
+
+    <!-- Menghubungkan file CSS ke HTML ini -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!--
+      SEMANTIC HTML: gunakan tag sesuai fungsinya, bukan <div> untuk semuanya.
+      <header> = kepala halaman, <nav> = menu, <main> = isi utama,
+      <section> = bagian bertema, <footer> = kaki halaman.
+      Manfaatnya: lebih mudah dibaca mesin pencari dan pembaca layar (aksesibilitas).
+    -->
+
+    <header class="site-header">
+      <nav class="nav container">
+        <ul class="nav-links">
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#proyek">Proyek</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ========== 1. HERO ========== -->
+      <section id="hero" class="hero container">
+        <p class="hero-label">Halo, saya</p>
+        <h1>Fildzah Hashilah N</h1>
+        <p class="hero-role">Mahasiswa Teknologi Rekayasa Multimedia</p>
+        <p class="hero-desc">
+          Front-End, UI/UX, HCI (Human-Computer Interaction), Psychology Enthusiast.
+        </p>
+        <a href="#proyek" class="btn">Lihat Proyek</a>
+      </section>
+
+      <!-- ========== 2. TENTANG ========== -->
+      <section id="tentang" class="section container">
+        <h2>Tentang Saya</h2>
+        <p>
+          Teknologi Rekayasa Multimedia: Beberapa orang berpikir jurusan saya hanya seputar desain grafis, fotografi, videografi dan animasi. Website juga salah satu bagian dari multimedia karena website sebagai media menampilkan informasi, sesuai prospek multimedia itu sendiri.
+        </p>
+        <p>Awal saya tertarik dengan website karena saya takjub dengan kumpulan teks perintah bisa menjadi tampilan informasi yang menakjubkan di internet.</p>
+      </section>
+
+      <!-- ========== 3. PROYEK ========== -->
+      <section id="proyek" class="section container">
+        <h2>Proyek</h2>
+
+        <div class="card-grid">
+          <!-- Satu <article> = satu kartu proyek. Salin untuk menambah proyek. -->
+          <article class="card">
+            <h3>Proyek 1: Portofolio Ini</h3>
+            <p>
+              Website portofolio responsif yang dibangun dengan HTML dan CSS.
+            </p>
+            <p class="tech">HTML • CSS</p>
+            <a href="#" class="card-link">Lihat kode (GitHub)</a>
+          </article>
+
+          <article class="card">
+            <h3>Proyek 2: Situs Undangan Pernikahan</h3>
+            <p>Penyebaran undangan lebih efektif hanya dengan satu undangan digital</p>
+            <p class="tech">HTML • CSS (Bootstrap 5.3) • Javascript (Library Integration)</p>
+            <a href="#" class="card-link">Lihat Kode (GitHub)</a>
+          </article>
+        </div>  
+      </section>
+
+      <!-- ========== 4. SKILL ========== -->
+      <section id="skill" class="section container">
+        <h2>Skill</h2>
+        <!-- Cukup daftar jujur, tanpa bar persentase -->
+        <ul class="skill-list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Git &amp; GitHub (sedang dipelajari)</li>
+          <li>JavaScript (sedang dipelajari)</li>
+        </ul>
+      </section>
+
+      <!-- ========== 5. KONTAK ========== -->
+      <section id="kontak" class="section container">
+        <h2>Kontak</h2>
+        <p>Tertarik berdiskusi atau menawarkan kesempatan magang? Hubungi saya:</p>
+        <ul class="contact-list">
+          <li><a href="mailto:fildzahhashilahnur.fildzah@gmail.com">fildzahhashilahnur.fildzah@gmail.com</a></li>
+          <li><a href="https://github.com/fildzahHN" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/fildzah-hashilah-nur-64b365258" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Fildzah Hashilah N</p>
+    </footer>
+
+    <!--
+      TUGAS (kerjakan berurutan, satu per sesi belajar):
+
+      Sesi 1 - Ganti semua teks [GANTI] dengan data Anda. Buka di browser.
+      Sesi 2 - Di style.css, ubah variabel warna (--warna-utama) dan lihat efeknya.
+      Sesi 3 - Tambahkan foto Anda di Hero memakai <img src="foto.jpg" alt="Foto [nama]" />.
+               Jangan lupa atribut alt (penting untuk aksesibilitas).
+      Sesi 4 - Tambahkan satu kartu proyek baru dengan menyalin <article class="card">.
+      Sesi 5 - Buka di HP (atau mode responsive di browser: tekan F12 lalu ikon HP).
+               Apakah ada bagian yang berantakan? Perbaiki di style.css.
+      Sesi 6 - Upload ke GitHub, lalu deploy gratis lewat GitHub Pages atau Netlify.
+    -->
+  </body>
+</html>

@@ -1,0 +1,267 @@
+/* ==========================================================
+   style.css - Portofolio Tahap 1
+   Konsep yang dipelajari di file ini:
+   1. CSS Variables (warna & ukuran di satu tempat)
+   2. Box model & reset dasar
+   3. Flexbox (navigasi, hero, daftar)
+   4. Grid (kartu proyek)
+   5. Responsive design (media query)
+   ========================================================== */
+
+
+/* ---------- 1. CSS VARIABLES ----------
+   Simpan warna di sini. Ubah satu nilai, seluruh situs ikut berubah.
+   TUGAS: ganti --warna-utama ke warna lain (misal #e11d48) dan lihat hasilnya. */
+:root {
+  --warna-utama: #8E9DE4;
+  --warna-aksen: #4a5bc7;
+  --warna-teks: #1f2937;
+  --warna-teks-redup: #606571;
+  --warna-latar: #f5f5f5;
+  --warna-latar-kartu: #f1f1f1;
+  --radius: 12px;
+  --lebar-maks: 960px;
+}
+
+
+/* ---------- 2. RESET DASAR ----------
+   Browser punya margin/padding bawaan yang beda-beda.
+   Kita seragamkan dulu agar hasilnya konsisten.
+   box-sizing: border-box = padding & border dihitung DI DALAM lebar elemen,
+   jadi lebih mudah menghitung ukuran. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* klik menu = menggulir halus */
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--warna-teks);
+  background: var(--warna-latar);
+  line-height: 1.6; /* jarak antar baris, bikin teks nyaman dibaca */
+}
+
+a {
+  color: var(--warna-aksen);
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ---------- 3. KOMPONEN UMUM ---------- */
+
+/* .container: membatasi lebar isi agar tidak melebar di layar besar,
+   dan memberi jarak kiri-kanan di HP.
+   margin: 0 auto = menaruh elemen di tengah. */
+.container {
+  max-width: var(--lebar-maks);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 56px 20px;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 16px;
+}
+
+p + p {
+  margin-top: 16px;
+}
+
+/* Tombol */
+.btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 24px;
+  background: var(--warna-aksen);
+  color: #f6f6f6;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* Fokus keyboard: penting untuk aksesibilitas, jangan dihapus */
+a:focus-visible {
+  outline: 3px solid var(--warna-utama);
+  outline-offset: 3px;
+}
+
+
+/* ---------- 4. NAVIGASI (FLEXBOX) ----------
+   display: flex membuat anak-anaknya berjajar horizontal.
+   justify-content = pengaturan sumbu utama (horizontal).
+   align-items     = pengaturan sumbu silang (vertikal). */
+.site-header {
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky; /* menu tetap menempel di atas saat scroll */
+  top: 0;
+  background: var(--warna-latar);
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--warna-teks);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px; /* jarak antar item menu */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--warna-teks-redup);
+}
+
+.nav-links a:hover {
+  color: var(--warna-aksen);
+}
+
+
+/* ---------- 5. HERO ---------- */
+.hero {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.hero-label {
+  color: var(--warna-teks-redup);
+}
+
+.hero h1 {
+  font-size: 2.75rem;
+  line-height: 1.2;
+}
+
+.hero-role {
+  color: var(--warna-aksen);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 8px;
+}
+
+.hero-desc {
+  max-width: 560px;
+  margin-top: 16px;
+  color: var(--warna-teks-redup);
+}
+
+
+/* ---------- 6. KARTU PROYEK (GRID) ----------
+   display: grid membuat tata letak baris & kolom.
+   repeat(auto-fit, minmax(240px, 1fr)) artinya:
+   "muat sebanyak mungkin kolom selebar minimal 240px, sisanya dibagi rata."
+   Ini sudah otomatis responsive tanpa media query. */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--warna-latar-kartu);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.tech {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  color: var(--warna-teks-redup);
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+
+/* ---------- 7. SKILL & KONTAK ---------- */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap; /* turun ke baris baru jika tidak muat */
+  gap: 10px;
+}
+
+.skill-list li {
+  background: var(--warna-latar-kartu);
+  padding: 8px 16px;
+  border-radius: 999px; /* membuat bentuk kapsul */
+}
+
+.contact-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+/* ---------- 8. FOOTER ---------- */
+.site-footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--warna-teks-redup);
+  border-top: 1px solid #e5e7eb;
+}
+
+
+/* ---------- 9. RESPONSIVE (MEDIA QUERY) ----------
+   Aturan di dalam blok ini HANYA berlaku saat lebar layar <= 600px (HP).
+   Pendekatan: desain desktop dulu, lalu "perbaiki" untuk layar kecil.
+   TUGAS: ubah 600px ke 480px atau 768px, lihat apa yang berubah. */
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .nav {
+    flex-direction: column; /* logo di atas, menu di bawah */
+    gap: 8px;
+  }
+
+  .nav-links {
+    gap: 14px;
+    font-size: 0.9rem;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+}
