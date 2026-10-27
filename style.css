@@ -285,3 +285,31 @@ body.dark {
 body.dark .btn {
   color: #14161c;
 }
+
+/* =====TOMBOL FILTER KARTU PROYEK=====*/
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--warna-aksen);
+  background: none;
+  color: var(--warna-aksen);
+  cursor: pointer;
+  font: inherit;
+  border-radius: var(--radius);
+}
+
+.filter-btn.aktif {
+  background: var(--warna-aksen);
+  color: #fff;
+}
+
+body.dark .filter-btn.aktif {
+  color: #14161c;
+}

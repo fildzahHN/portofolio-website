@@ -1,3 +1,5 @@
+/*  =====TOMBOL TEMA=====*/
+
 // Pilih elemen
 const tombol = document.querySelector("#tombol-tema");
 
@@ -33,3 +35,39 @@ const temaTersimpan = localStorage.getItem("tema");
 if (temaTersimpan === "gelap") {
     terapkanTema(true);
 }
+
+/* ===== TOMBOL FILTER KARTU PROYEK===== */
+
+// 1. PILIH: semua tombol filter dan semua kartu
+const tombolFilter = document.querySelectorAll(".filter-btn");
+const kartu = document.querySelectorAll(".card");
+
+//2. FUNGSI: tampilkan hanya kartu yang cocok dengan tampilan
+function terapkanFilter(pilihan) {
+  kartu.forEach(function (k) {
+    // k.dataset.teknologi = isi atribut data-teknologi, berupa teks
+    const daftar = k.dataset.teknologi.split(" ");
+
+    if (pilihan === "semua" || daftar.includes(pilihan)) {
+      k.hidden = false;
+    } else {
+      k.hidden = true;
+    }
+  });
+}
+
+//3. DENGARKAN: setiap tombol filter diklik
+tombolFilter.forEach(function (tombolIni) {
+  tombolIni.addEventListener("click", function () {
+    //a) Terapkan filter. Pilihannya tersimpan pada di atribut data-filter tombol.
+    terapkanFilter(tombolIni.dataset.filter);
+
+    //b) Perbarui tampilan tombol: hanya satu kali "aktif"
+    tombolFilter.forEach(function (t) {
+      t.classList.remove("aktif");
+      t.setAttribute("aria-pressed", "false");
+    });
+    tombolIni.classList.add("aktif");
+    tombolIni.setAttribute("aria-pressed", "true");
+  });
+});
