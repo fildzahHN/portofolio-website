@@ -313,3 +313,45 @@ body.dark .btn {
 body.dark .filter-btn.aktif {
   color: #14161c;
 }
+
+/* ======FORM KONTAK====== */
+
+.field {
+  margin-top: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--warna-teks);
+  background: var(--warna-latar-kartu);
+  border: 1px solid #c9ccd3;
+  border-radius: var(--radius);
+}
+
+input[aria-invalid="true"], textarea[aria-invalid="true"] {
+  border-color: #b91c1c;
+}
+
+.error {
+  color: #b91c1c;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  min-height: 1,2em;
+}
+
+body.dark .error {
+  color: #f87171;
+}
+
+#status-form {
+  margin-top: 12px;
+  font-weight: 600;
+}
