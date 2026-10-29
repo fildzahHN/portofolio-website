@@ -93,15 +93,6 @@
             <a href="#" class="card-link">Lihat Kode (GitHub)</a>
           </article>
 
-          <article class="card" data-teknologi="html-css">
-            <h3>Kartu HTML/CSS</h3>
-            <p>Hanya untuk menguji Filter</p>
-          </article>
-
-          <article class="card" data-teknologi="html css javascript">
-            <h3>Kartu HTML + JS</h3>
-            <p>Hanya untuk menguji filter</p>
-          </article>
         </div>  
       </section>
 
@@ -126,6 +117,30 @@
           <li><a href="https://github.com/fildzahHN" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://linkedin.com/in/fildzah-hashilah-nur-64b365258" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
+
+        <form id="form-kontak">
+          <div class="field">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" autocomplete="name">
+            <p class="error" id="error-nama" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="text" id="email" autocomplete="email">
+            <p class="error" id="error-email" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" rows="4"></textarea>
+            <p class="error" id="error-pesan" aria-live="polite"></p>
+          </div>
+
+          <button type="submit" class="btn">Kirim</button>
+          <p id="status-form" aria-live="polite"></p>
+        </form>
+        
       </section>
     </main>
 
