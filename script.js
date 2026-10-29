@@ -71,3 +71,58 @@ tombolFilter.forEach(function (tombolIni) {
     tombolIni.setAttribute("aria-pressed", "true");
   });
 });
+
+/* =====FORM KONTAK=====*/
+
+const form = document.querySelector("#form-kontak");
+const inputNama = document.querySelector("#nama");
+const inputEmail = document.querySelector("#email");
+const inputPesan = document.querySelector("#pesan");
+const statusForm = document.querySelector("#status-form");
+
+// Fungsi bantu: tampilkan atau hapus pesan error di bawah sebuah kolom
+function tampilkanError (input, pesan) {
+  const elError =document.querySelector("#error-" + input.id);
+  elError.textContent = pesan;
+  input.setAttribute("aria-invalid", pesan ? "true" : "false");
+}
+
+form.addEventListener ("submit", function (e) {
+  e.preventDefault(); //Jangan muat halaman
+  statusForm.textContent = "";
+  let valid = true; //anggap benar dulu, ubah jadi false jika ada yang salah
+
+  // --Nama--
+  const nama = inputNama.value.trim() 
+  if (nama.length < 3) {
+    tampilkanError(inputNama, "Nama minimal 2 karakter");
+    valid = false;
+  } else {
+    tampilkanError(inputNama, "");
+  }
+
+  // Email harus mengandung "@" dan "."----
+  const email =  inputEmail.value.trim();
+  if (!email.includes("@") || !email.includes(".")) {
+    tampilkanError(inputEmail, "Masukkan alamat email yang valid");
+    valid = false;
+  }
+  else {
+    tampilkanError(inputEmail, "");
+  }
+
+  // Pesan minimal 10 karakter
+  const pesan = inputPesan.value.trim();
+  if (pesan.length < 10) {
+    tampilkanError(inputPesan, "Pesan minimal 10 karakter");
+    valid = false;
+  } else {
+    tampilkanError(inputPesan, "");
+  }
+
+  // Hasil akhir
+  if (valid) {
+    statusForm.textContent = "Terima kasih, pesan Anda lolos verifikasi";
+    form.reset();
+  }
+});
